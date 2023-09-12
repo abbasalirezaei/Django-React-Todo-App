@@ -12,7 +12,7 @@ class Todo(models.Model):
         User, on_delete=models.CASCADE, null=True, blank=True
     )
     task = models.CharField(max_length=100)
-    
+    isEditing= models.BooleanField(default=False)
     completed = models.BooleanField(default=False)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)

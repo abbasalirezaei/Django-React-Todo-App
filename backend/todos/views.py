@@ -10,12 +10,12 @@ from .serializers import TodoSerializer
 
 class TaskListViewSets(viewsets.ModelViewSet):
 
-    permission_classes=[IsAuthenticated]
+    # permission_classes=[IsAuthenticated]
     queryset=Todo.objects.all()
     serializer_class=TodoSerializer
 
     def get_queryset(self):
-        return Todo.objects.filter(author=self.request.user.id)
+        return Todo.objects.filter()
 
     def perform_create(self,serializer):
         serializer.save(author=self.request.user)

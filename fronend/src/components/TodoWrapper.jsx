@@ -11,15 +11,33 @@ export const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
 
   // const [catFact,setCatFact]=useState("")
+
+  // const fetchData=()=>{
+  //     axios.get("http://127.0.0.1:8000/task-list/").then(
+  //         (res)=>{
+  //             // setCatFact(res.data.fact)
+  //             console.log("hi")
+  //         }).catch(console.log("bye"))
+  // }
+  // useEffect(()=>{
+  //   fetchFact()
+  // },[])
+  // const fetchFact=()=>{
+  //     axios.get("http://127.0.0.1:8000/task-list/").then(
+  //         (res)=>{
+  //             // setCatFact(res.data.fact)
+  //             console.log(res)
+  //         })
+  // }
+
+
   useEffect(()=>{
     fetchData()
   },[])
-  const fetchData=()=>{
-      axios.get("/http://127.0.0.1:8000/task-list/").then(
-          (res)=>{
-              // setCatFact(res.data.fact)
-              console.log("hi")
-          })
+  const fetchData = () => {
+    return fetch("http://127.0.0.1:8000/task-list/")
+      .then((res) => res.json())
+      .then((d) => setTodos(d))
   }
   
   const toggleComplete = (id) => {

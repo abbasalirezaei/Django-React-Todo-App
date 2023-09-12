@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { v4 as uuid } from "uuid";
 // uuidv4();
+
 export const TodoForm = ({ todos, setTodos }) => {
   const [value, setValue] = useState("");
   const unique_id = uuid();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (value) {
       setTodos([
-        ...todos,
-        {
-          id: unique_id.slice(0, 8),
-          task: value,
-          completed: false,
-          isEditing: false
-        }
+        ...todos,{task:value}
       ]);
     }
     setValue("");

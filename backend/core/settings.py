@@ -44,11 +44,15 @@ INSTALLED_APPS = [
 ]
 AUTH_USER_MODEL='accounts.USER'
 
-CORS_ALLOWED_ORIGINS = [
+CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     # "http://127.0.0.1:5173",
 ]
 MIDDLEWARE = [
+    #    
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    # 
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
