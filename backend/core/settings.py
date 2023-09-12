@@ -40,9 +40,14 @@ INSTALLED_APPS = [
     'todos',
     'accounts',
     'rest_framework',
+    'corsheaders',
 ]
 AUTH_USER_MODEL='accounts.USER'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    # "http://127.0.0.1:5173",
+]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
